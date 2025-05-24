@@ -1,0 +1,30 @@
+.avatarAndName{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* width: 0%; */
+}
+.iconprew{
+    display: flex;
+    align-items: center;
+}
+.actionBUtonns{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.searchAndAdd{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.selectAdd{
+    padding: 7px 20px;
+    /* margin-top: 20px;color: aqua; */
+}
