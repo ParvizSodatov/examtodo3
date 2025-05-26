@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import avatarImg from "@/assets/Avatar.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import BMW from '@/assets/bmw.jpg'
-import MersWhite from './assets/MersWhite.jpg'
+import MersWhite from './assets/mersWhite.jpg'
 import bugatti from './assets/bugatti.jpg'
 import opel from './assets/opel.jpg'
 import sem from './assets/07.jpg'
