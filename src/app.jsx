@@ -7,19 +7,20 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import avatarImg from "@/assets/Avatar.png";
-import A1 from "@/assets/A1.png";
-import A2 from "@/assets/A2.png";
-import A3 from "@/assets/A3.png";
-import A4 from "@/assets/A4.png";
+import MenuIcon from '@mui/icons-material/Menu';
+import BMW from '@/assets/bmw.jpg'
+import MersWhite from './assets/MersWhite.jpg'
+import bugatti from './assets/bugatti.jpg'
+import opel from './assets/opel.jpg'
+import sem from './assets/07.jpg'
+import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 // import Button from '@mui/material/Button';
+import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
 import Typography from '@mui/material/Typography';
-
-
-
 import LinearScaleIcon from "@mui/icons-material/LinearScale";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
@@ -29,6 +30,7 @@ import { AccountCircle, DarkMode, Delete, Edit, PhoneRounded, Sunny } from "@mui
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+
 import {
   Dialog,
   DialogActions,
@@ -46,48 +48,48 @@ export default function App() {
   const [user, setUser] = useState([
     {
       id: "1",
-      name: "jack",
-      city: "Dushanbe",
+      name: "BMW",
+      city: "Germany",
       status: false,
-      phone: "98778909",
-      avatar: A1,
-      email: "example@gmail.com",
+      color: "black  ",
+      avatar: BMW,
+      model: "M5",
     },
     {
       id: "2",
-      name: "Potter",
-      city: "Kulob",
+      name: "Mersedes",
+      city: "Germany",
       status: true,
-      phone: "98778909",
-      avatar: A2,
-      email: "example@gmail.com",
+      color:'white',
+      avatar: MersWhite,
+      model:'Maybach'
     },
     {
       id: "3",
-      name: "Amin",
-      city: "Khujand",
+      name: "Buggati",
+      city: "France",
       status: false,
-      phone: "98778909",
-      avatar: A3,
-      email: "example@gmail.com",
+       color:'blue',
+      avatar: bugatti,
+       model:'Bunty Clour'
     },
      {
       id: "4",
-      name: "Londe",
-      city: "Kulob",
+      name: "Opel",
+      city: "Germany",
       status: false,
-      phone: "98778909",
-      avatar: A4,
-      email: "example@gmail.com",
+      color:'blue',
+      avatar: opel,
+      model: "Astra G",
     },
    {
       id: "5",
-      name: "Amore",
-      city: "Dushanbe",
+      name: "07",
+      city: "Russia",
       status: false,
-      phone: "98778909",
-      avatar: avatarImg,
-      email: "example@gmail.com",
+     color:'brown',
+      avatar: sem,
+      model :'semyorka'
     },
 
 
@@ -125,10 +127,10 @@ export default function App() {
 
   useEffect(() => {
     if(theme){
-      document.body.style.backgroundColor = '#090909'
+      document.body.style.backgroundColor = 'rgb(92, 93, 68)'
     }
     else{
-      document.body.style.backgroundColor = '#ccc'
+      document.body.style.backgroundColor = ''
     }
   }, [theme])
 
@@ -136,9 +138,9 @@ export default function App() {
     setId(user.id);
     setEditName(user.name)
 
-    setEditEmail(user.email)
+    setEditEmail(user.color)
 
-    setEditPhone(user.phone)
+    setEditPhone(user.model)
 
     setEditCity(user.city)
     setEditAvatar(user.avatar)
@@ -179,8 +181,8 @@ export default function App() {
     setUser(user.map(el => {
       if(el.id == idx){
         el.name = editName;
-        el.phone = editPhone;
-        el.email = editEmail;
+        el.model = editPhone;
+        el.color = editEmail;
         el.avatar = editAvatar;
         el.city = editCity;
         el.status = editStatus;
@@ -211,7 +213,7 @@ export default function App() {
       email: addEmail,
       city: addCity,
       status: addStatus === "true",
-      phone: addPhone,
+      model: addPhone,
     };
     setUser([...user, newAddUser]);
     setAddAvatar("");
@@ -224,7 +226,7 @@ export default function App() {
 
   return (
     <>
-   
+   <h1 style={{marginLeft:'200px',fontSize:'50px'}}>TODO Car's</h1>
       <div className="nav">
         <div className="selectstatusAndCity">
           <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -254,9 +256,9 @@ export default function App() {
               onChange={(e) => setFilterCity(e.target.value)}
             >
               <MenuItem value={""}>All</MenuItem>
-              <MenuItem value={"Dushanbe"}>Dushanbe</MenuItem>
-              <MenuItem value={"Khujand"}>Khujand</MenuItem>
-              <MenuItem value={"Kulob"}>Kulob</MenuItem>
+              <MenuItem value={"Russia"}>Russia</MenuItem>
+              <MenuItem value={"Germany"}>Germany</MenuItem>
+              <MenuItem value={"France"}>France</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -290,8 +292,8 @@ export default function App() {
             <TableRow>
               <TableCell>
                 <div className="iconprew">
-                  <PersonIcon />
-                  Name
+                  <DirectionsCarFilledIcon/>
+                  Car
                 </div>
               </TableCell>
               <TableCell align="right">
@@ -309,8 +311,8 @@ export default function App() {
               </TableCell>
               <TableCell align="right">
                 <div className="iconprew">
-                  <PhoneRounded />
-                  Phone
+                 <ModelTrainingIcon/>
+                  Model
                 </div>
               </TableCell>
               <TableCell align="left">Action</TableCell>
@@ -338,7 +340,7 @@ export default function App() {
                     style={{ width: "250px" }}
                   >
                     <div className="avatarAndName">
-                      <img src={row.avatar} alt="" />
+                      <img className="avatar"  src={row.avatar} alt="" />
                       <div className="">
                         {row.name} <br />
                         {row.email}
@@ -349,7 +351,7 @@ export default function App() {
                   <TableCell align="left">
                     {row.status ? "Active" : "Inactive"}
                   </TableCell>
-                  <TableCell align="left">{row.phone}</TableCell>
+                  <TableCell align="left">{row.model}</TableCell>
                   <TableCell align="left">
                     <div>
                       <Button
@@ -358,9 +360,11 @@ export default function App() {
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
                         onClick={handleClick}
+
                       >
+
                         <Button onClick={() => handleinfoForUser(row)}>
-                          <LinearScaleIcon />
+                        <MenuIcon/>
                         </Button>
                       </Button>
                       <Menu
@@ -372,13 +376,7 @@ export default function App() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={handleClose}>
-                          <div className="actionBUtonns">
-                            <AccountCircle />
-
-                            <p>View Profile</p>
-                          </div>
-                        </MenuItem>
+                       
                         <MenuItem onClick={handleClose}>
                           <div className="actionBUtonns">
                             <Edit onClick={handleEditClickOpen} />

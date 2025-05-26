@@ -5,9 +5,19 @@
     gap: 10px;
     /* width: 0%; */
 }
+.avatar{
+    width: 70px;
+    height:70px;
+    border-radius: 50%;
+    object-fit: cover;
+      border: 2px solid white;
+
+}
 .iconprew{
     display: flex;
     align-items: center;
+    /* background-color: rgb(92, 93, 68); */
+
 }
 .actionBUtonns{
     display: flex;
